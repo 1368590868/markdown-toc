@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import React from 'react'
 import Tocify from './tocify'
@@ -6,7 +5,8 @@ import { marked } from 'marked'
 
 function App() {
 
-  const [markdown, setMarkdown] = useState(`
+  
+  const markdown = `
 # toc1 
 **123123**
 >hellow
@@ -21,10 +21,10 @@ function App() {
 ## Toc2
 555
 
-  `)
+  `
   const tocify = new Tocify()
   const renderer = new marked.Renderer()
-  renderer.heading = (text: string, level: number, raw: string) => {
+  renderer.heading = (text: string, level: number) => {
     console.log(text)
     const anchor = tocify.add(text, level)
     return `<a id="${anchor}" href="#${anchor}" ><h${level}>${text}</h${level}></a>\n`;
