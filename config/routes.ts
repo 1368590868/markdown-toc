@@ -12,6 +12,12 @@
  */
 export default [
   {
+    path: '/',
+    name: 'welcome',
+    icon: 'smile',
+    component: './Welcome',
+  },
+  {
     path: '/user',
     layout: false,
     routes: [
@@ -22,39 +28,7 @@ export default [
       },
     ],
   },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
-  },
+
   {
     path: '*',
     layout: false,
